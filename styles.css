@@ -1,0 +1,9 @@
+.epicExtensionEpicText {
+  image-rendering: pixelated;
+  background-position: bottom;
+  background-repeat: repeat no-repeat;
+  background-size: 0.5em .5em; 
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/fire_gif.gif');
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
