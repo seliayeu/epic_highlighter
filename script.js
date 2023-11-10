@@ -1,17 +1,26 @@
-window.addEventListener("click", (e) => {
-  if (!e.ctrlKey)
-    return;
+const all = document.getElementsByTagName("*");
 
-  var element = e.target;
+var textNodes = [];
 
-  if (element?.innerText?.toLowerCase().includes("epic")) {
-    element.innerHTML = element.innerHTML.replace(new RegExp("epic", "ig"),
-      '<span class="epicExtensionEpicText">epic</span>');
+for (var i = 0; i < all.length; i++) {
+  const element = all[i];
+
+  if (element?.tag === "SCRIPT" || element?.tag === "STYLE" || element?.tag === "HEAD" || element?.tag === "NOSCRIPT") {
+    continue;
   }
-});
 
-// var all = document.getElementsByTagName("div");
-//
-// for (var i = 0; i < all.length; i++) {
-//   var element = all[i];
-// }
+  for (const child of element.childNodes) {
+    if (child.nodeType === 3) {
+      textNodes.push(child);
+    }
+  }
+}
+
+for (const textNode of textNodes) {
+  const innerHTML = textNode.nodeValue.replace(new RegExp("epic", "ig"), '<span class="epicExtensionEpicText">epic</span>');
+  const div = document.createElement('div');
+  textNode.parentNode.insertBefore(div, textNode);
+  div.insertAdjacentHTML('afterend', innerHTML);
+  div.remove();
+  textNode.remove();
+}
