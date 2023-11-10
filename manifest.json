@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Epic Highlighter",
-    "description": "A simple extension that highlights occurences of the word \"epic\" in a cool and whimsical way!",
+    "description": "A simple extension that highlights occurrences of the word \"epic\" in a cool and whimsical way!",
     "version": "1.0",
     "action": {
         "default_icon": "icon.png"
