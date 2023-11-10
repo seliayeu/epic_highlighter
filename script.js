@@ -5,9 +5,12 @@ var textNodes = [];
 for (var i = 0; i < all.length; i++) {
   const element = all[i];
 
-  if (element?.tagName === "SCRIPT" || element?.tagName === "STYLE" ||
-    element?.tagName === "HEAD" || element?.tagName === "META" ||
-    element?.tagName === "TITLE") {
+  const excludedTags = [
+    "SCRIPT", "STYLE", "HEAD", "META", "TITLE", "INPUT", "TEXTAREA", "FORM",
+    "CODE"
+  ];
+
+  if (excludedTags.includes(element?.tagName)) {
     continue;
   }
 
