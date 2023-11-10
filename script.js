@@ -5,14 +5,15 @@ var textNodes = [];
 for (var i = 0; i < all.length; i++) {
   const element = all[i];
 
-  if (element?.tag === "SCRIPT" || element?.tag === "STYLE" || element?.tag === "HEAD" || element?.tag === "NOSCRIPT") {
+  if (element?.tagName === "SCRIPT" || element?.tagName === "STYLE" ||
+    element?.tagName === "HEAD" || element?.tagName === "META" ||
+    element?.tagName === "TITLE") {
     continue;
   }
 
   for (const child of element.childNodes) {
-    if (child.nodeType === 3) {
+    if (child.nodeType === 3)
       textNodes.push(child);
-    }
   }
 }
 
